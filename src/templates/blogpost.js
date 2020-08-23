@@ -2,6 +2,8 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../css/blogpost.css"
+
 const BlogPost = ({ data }) => {
   const { title, body, tags } = data.contentfulBlogPost
   return (
@@ -9,14 +11,17 @@ const BlogPost = ({ data }) => {
       <SEO title={title} />
       <div className="blogpost">
         <h1>{title}</h1>
+        <p className="body-text">{body.body}</p>
         <div className="tags">
+          タグ：
           {tags.map(tag => (
             <span className="tag" key={tag}>
               {tag}
             </span>
           ))}
         </div>
-        <p className="body-text">{body.body}</p>
+        <Link to="/bloglist/">Back to Blog List</Link>
+        <br></br>
         <Link to="/">Back to Home</Link>
       </div>
     </Layout>

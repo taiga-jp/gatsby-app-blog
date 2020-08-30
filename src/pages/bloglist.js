@@ -14,9 +14,14 @@ const Bloglist = ({ data }) => {
       <h2 className="posts-title">Post List</h2>
       <div className="posts">
         {blogPosts.map(({ node: post }) => (
-          <div className="post-title" key={post.slug}>
-            <Link to={`/blogpost/${post.slug}`}>{post.title}</Link>
-          </div>
+            <Link
+              to={`/bloglist/${post.slug}`}
+              className="post"
+              key={post.slug}
+            >
+              <img src={post.thumbnail.file.url} />
+              <p>{post.title}</p>
+            </Link>
         ))}
       </div>
       <Link to="/">Back to Home</Link>
@@ -32,6 +37,11 @@ export const pageQuery = graphql`
         node {
           title
           slug
+          thumbnail {
+            file {
+              url
+            }
+          }
           body {
             body
           }

@@ -4,6 +4,10 @@
   font-size: 14px;
 }
 
+.tag {
+  margin-left: 10px;
+}
+
 .body-text {
     margin-bottom: 20px;
 }

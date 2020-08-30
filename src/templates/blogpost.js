@@ -5,12 +5,13 @@ import SEO from "../components/seo"
 import "../css/blogpost.css"
 
 const BlogPost = ({ data }) => {
-  const { title, body, tags } = data.contentfulBlogPost
+  const { title, thumbnail, body, tags } = data.contentfulBlogPost
   return (
     <Layout>
       <SEO title={title} />
       <div className="blogpost">
         <h1>{title}</h1>
+        <img src={thumbnail.file.url} />
         <p className="body-text">{body.body}</p>
         <div className="tags">
           タグ：
@@ -33,6 +34,11 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug
+      thumbnail {
+        file {
+          url
+        }
+      }
       body {
         body
       }

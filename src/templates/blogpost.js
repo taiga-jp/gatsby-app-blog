@@ -6,13 +6,20 @@ import "../css/blogpost.css"
 
 const BlogPost = ({ data }) => {
   const { title, thumbnail, body, tags } = data.contentfulBlogPost
+  const textBr = (target) => {
+    return target.replace(/\r?\n/g, "<br>");
+  }
+
   return (
     <Layout>
       <SEO title={title} />
       <div className="blogpost">
         <h1>{title}</h1>
-        <img src={thumbnail.file.url} />
-        <p className="body-text">{body.body}</p>
+        <img className="thumb" src={thumbnail.file.url} />
+        <p
+          className="body-text"
+          dangerouslySetInnerHTML={{ __html: textBr(body.body) }}
+        />
         <div className="tags">
           タグ：
           {tags.map(tag => (

@@ -7,13 +7,14 @@ import PostCard from "../components/postcard"
 import "../css/common.css"
 import "../css/bloglist.css"
 
-const Bloglist = ({ data }) => {
+const Category = ({ data }) => {
   const blogPosts = data.allContentfulBlogPost.edges
   const categories = data.allContentfulCategory.edges
+  const isCategory = data.contentfulCategory
   return (
     <Layout>
       <SEO title="Bloglist" />
-      <h1 className="bloglist-title">Blog List</h1>
+      <h1 className="bloglist-title">{isCategory.name}</h1>
       <div className="contents">
         <div className="posts contents-main">
           {blogPosts.map(({ node: post }) => (
@@ -28,17 +29,19 @@ const Bloglist = ({ data }) => {
             />
           ))}
         </div>
-        <SideBar categories={categories} />
+        <SideBar className="contents-side" categories={categories} />
       </div>
       <Link to="/">Back to Home</Link>
     </Layout>
   )
 }
 
-export default Bloglist
+export default Category
 export const pageQuery = graphql`
-  query {
-    allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
+  query($slug: String!) {
+    allContentfulBlogPost(
+      filter: { category: { elemMatch: { name: { eq: $slug } } } }
+    ) {
       edges {
         node {
           title
@@ -63,6 +66,9 @@ export const pageQuery = graphql`
           slug
         }
       }
+    }
+    contentfulCategory(slug: { eq: $slug }) {
+      name
     }
   }
 `

@@ -21,6 +21,13 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulCategory {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `
   )
@@ -29,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
         console.log("Error retrieving contentful data", result.errors)
       }
       const blogPostTemplate = path.resolve("./src/templates/blogpost.js")
+      const categoryPostTemplate = path.resolve("./src/templates/category.js")
       result.data.allContentfulBlogPost.edges.forEach(edge => {
         createPage({
           path: `/bloglist/${edge.node.slug}/`,
@@ -36,6 +44,15 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             slug: edge.node.slug,
             id: edge.node.id,
+          },
+        })
+      })
+      result.data.allContentfulCategory.edges.forEach(edge => {
+        createPage({
+          path: `/category/${edge.node.slug}/`,
+          component: slash(categoryPostTemplate),
+          context: {
+            slug: edge.node.slug,
           },
         })
       })

@@ -15,6 +15,7 @@ function SideBar(props) {
           {category.name}
         </Link>
       ))}
+      <Link to="/contact">CONTACT</Link>
     </div>
   )
 }

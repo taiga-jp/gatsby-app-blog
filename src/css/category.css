@@ -1,0 +1,17 @@
+.category {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.category-title {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.category-name {
+  display: block;
+  margin: 0 20px;
+  font-size: 20px;
+}

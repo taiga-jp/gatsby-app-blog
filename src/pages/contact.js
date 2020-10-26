@@ -1,15 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
 import Layout from '../components/layout'
+import SEO from "../components/seo"
+import "../css/contact.css"
+import Button from '@material-ui/core/Button';
 
 const ContactPage = () => (
   <Layout>
-    <h1>Contact Form</h1>
-    <p>メールフォーム送信テスト</p>
-    <form 
-      name="contact" 
-      method="POST" 
+    <SEO title="Contact" />
+    <h1 className="contact-title">お問い合わせ</h1>
+    <form
+      className="contact-form"
+      name="contact"
+      method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
@@ -17,26 +20,25 @@ const ContactPage = () => (
     <input type="hidden" name="bot-field" />
 
       <div className="form-group">
-        <label>お名前<abbr title="required">*</abbr>
-        <input type="text" className="form-control" id="name" name="name" placeholder="お名前" maxlength="30" minlength="2" required autocomplete="name" />
+        <label><span>お名前</span><abbr title="required">*</abbr>
+        <input type="text" className="form-control" id="name" name="name" placeholder="" maxlength="30" minlength="2" required autocomplete="name" />
         </label>
       </div>
       <div className="form-group">
-        <label>メールアドレス<abbr title="required">*</abbr>
+        <label><span>メールアドレス</span><abbr title="required">*</abbr>
         <input type="email" className="form-control" id="email" name="email" placeholder="" pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required autocomplete="email" />
         </label>
       </div>
       <div className="form-group">
-        <label>お問い合わせ内容<abbr title="required">*</abbr>
+        <label><span>お問い合わせ内容</span><abbr title="required">*</abbr>
         <textarea className="form-control" id="contact" name="content" rows="8" required></textarea>
         </label>
       </div>
 
-      <div className="form-group">
-      <button type="submit">送信</button>
+      <div className="form-group-btn">
+        <Button variant="contained" type="submit">送信</Button>
       </div>
     </form>
-    <Link to="/">home</Link>
   </Layout>
 )
 

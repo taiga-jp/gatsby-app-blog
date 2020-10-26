@@ -1,11 +1,3 @@
 .contents {
   display: flex;
 }
-
-.contents-main {
-  width: 75%;
-}
-
-.contents-side {
-  width: 25%;
-}

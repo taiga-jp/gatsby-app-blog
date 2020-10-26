@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SideBar from "../components/sidebar"
+import CategoryList from "../components/categoryList"
 import PostCard from "../components/postcard"
 import "../css/common.css"
 import "../css/bloglist.css"
@@ -13,7 +13,8 @@ const Bloglist = ({ data }) => {
   return (
     <Layout>
       <SEO title="Bloglist" />
-      <h1 className="bloglist-title">Blog List</h1>
+      <CategoryList categories={categories} />
+      <h1 className="bloglist-title">ブログ一覧</h1>
       <div className="contents">
         <div className="posts contents-main">
           {blogPosts.map(({ node: post }) => (
@@ -28,9 +29,7 @@ const Bloglist = ({ data }) => {
             />
           ))}
         </div>
-        <SideBar categories={categories} />
       </div>
-      <Link to="/">Back to Home</Link>
     </Layout>
   )
 }

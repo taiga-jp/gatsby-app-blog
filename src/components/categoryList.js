@@ -1,23 +1,21 @@
 import { Link } from "gatsby"
 import React from "react"
-import "../css/sidebar.css"
+import "../css/category.css"
 
-function SideBar(props) {
+function CategoryList(props) {
   return (
-    <div className="sidebar">
-      <p className="sidebar-title">カテゴリ一覧</p>
+    <div className="category">
       {props.categories.map(({ node: category }) => (
         <Link
           to={`/category/${category.name}`}
-          className="sidebar-category"
+          className="category-name"
           key={category.slug}
         >
           {category.name}
         </Link>
       ))}
-      <Link to="/contact">CONTACT</Link>
     </div>
   )
 }
 
-export default SideBar
+export default CategoryList

@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SideBar from "../components/sidebar"
+import CategoryList from "../components/categoryList"
 import PostCard from "../components/postcard"
 import "../css/common.css"
 import "../css/bloglist.css"
@@ -14,6 +14,7 @@ const Category = ({ data }) => {
   return (
     <Layout>
       <SEO title="Bloglist" />
+      <CategoryList categories={categories} />
       <h1 className="bloglist-title">{isCategory.name}</h1>
       <div className="contents">
         <div className="posts contents-main">
@@ -29,7 +30,6 @@ const Category = ({ data }) => {
             />
           ))}
         </div>
-        <SideBar className="contents-side" categories={categories} />
       </div>
       <Link to="/">Back to Home</Link>
     </Layout>

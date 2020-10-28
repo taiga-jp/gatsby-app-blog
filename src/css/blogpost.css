@@ -1,8 +1,16 @@
+.blogpost h1 {
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
 .thumb {
   display: block;
+  width: 100%;
+  max-width: 460px;
   height: auto;
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .tags {
@@ -17,5 +25,12 @@
 }
 
 .body-text {
-  margin-bottom: 20px;
+  margin-bottom: 64px;
+  background: none;
+}
+
+@media screen and (max-width:740px) {
+  .blogpost h1 {
+    font-size: 40px;
+  }
 }

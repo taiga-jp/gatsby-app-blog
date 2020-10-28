@@ -31,7 +31,6 @@ const Category = ({ data }) => {
           ))}
         </div>
       </div>
-      <Link to="/">Back to Home</Link>
     </Layout>
   )
 }

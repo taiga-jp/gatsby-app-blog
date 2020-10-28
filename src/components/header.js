@@ -22,7 +22,7 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/bloglist/"
           style={{
-            color: `rgba(0,0,0,0.5)`,
+            color: `#666`,
             fontWeight: `normal`,
             textDecoration: `none`,
           }}

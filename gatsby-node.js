@@ -8,10 +8,15 @@
 
 const path = require(`path`)
 const slash = require(`slash`)
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+exports.createPages = ({
+  graphql,
+  actions
+}) => {
+  const {
+    createPage
+  } = actions
   return graphql(
-    `
+      `
       {
         allContentfulBlogPost {
           edges {
@@ -30,7 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `
-  )
+    )
     .then(result => {
       if (result.errors) {
         console.log("Error retrieving contentful data", result.errors)

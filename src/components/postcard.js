@@ -8,6 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
 import "../css/postcard.css"
 
 const useStyles = makeStyles({
@@ -53,8 +54,11 @@ function PostCard(props) {
             title="Contemplative Reptile"
           />
           <CardContent className="postcard-contents__main">
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography Typography gutterBottom variant = "h5"
+            component = "h2"
+            className = "postcard-title" >
               {propsTitle}
+              <span className="postcard-date">{propsCreated}</span>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {textSlice(propsBody)}
@@ -62,7 +66,7 @@ function PostCard(props) {
             <Typography className="postcard-tag" Typography variant="body2" color="textSecondary" component="p">
               {propsTags.map(tag => (
                 <span key={tag}>
-                  {tag}
+                  <Chip size="small" label={tag} />
                 </span>
               ))}
             </Typography>

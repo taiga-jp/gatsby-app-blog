@@ -25,6 +25,7 @@
 
 .postcard-tag {
   margin-top: 20px !important;
+  margin-left: 4px;
   font-size: 12px;
   text-align: right;
 }

@@ -1,3 +1,8 @@
+.blogpost {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .blogpost h1 {
   font-size: 64px;
   text-align: center;

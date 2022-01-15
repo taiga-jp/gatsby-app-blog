@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.11.0",
-    "marked": "^1.2.2",
+    "marked": "^4.0.10",
     "prettier": "2.0.5"
   },
   "keywords": [
